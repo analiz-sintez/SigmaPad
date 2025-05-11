@@ -132,9 +132,11 @@ exports.padeditbar = new class {
   }
 
   init() {
+    console.log('Initializing toolbar...');
     $('#editbar .editbarbutton').attr('unselectable', 'on'); // for IE
     this.enable();
     $('#editbar [data-key]').each((i, elt) => {
+      console.log('Found toolbar element:', $(elt).attr('data-key'));
       $(elt).off('click');
       new ToolbarItem($(elt)).bind((command, item) => {
         this.triggerCommand(command, item);
@@ -359,6 +361,7 @@ exports.padeditbar = new class {
   }
 
   _registerDefaultCommands() {
+    console.log('Registering default commands...');
     this.registerDropdownCommand('showusers', 'users');
     this.registerDropdownCommand('settings');
     this.registerDropdownCommand('connectivity');
@@ -399,6 +402,11 @@ exports.padeditbar = new class {
 
     this.registerCommand('showTimeSlider', () => {
       document.location = `${document.location.pathname}/timeslider`;
+    });
+
+    this.registerCommand('select_language', () => {
+      console.log('Language selection clicked');
+      // TODO: Implement language selection functionality
     });
 
     const aceAttributeCommand = (cmd, ace) => {

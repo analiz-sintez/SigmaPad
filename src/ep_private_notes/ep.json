@@ -1,0 +1,15 @@
+{
+  "parts": [
+    {
+      "name": "ep_private_notes",
+      "hooks": {
+        "eejsBlock_scripts": "ep_private_notes/index",
+        "eejsBlock_styles": "ep_private_notes/index",
+        "clientVars": "ep_private_notes/index"
+      },
+      "client_hooks": {
+        "postAceInit": "ep_private_notes/static/js/main"
+      }
+    }
+  ]
+} 

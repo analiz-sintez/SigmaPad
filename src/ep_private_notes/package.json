@@ -1,0 +1,29 @@
+{
+  "name": "ep_private_notes",
+  "version": "1.0.0",
+  "description": "Add a private notes panel to the right side of Etherpad",
+  "author": "Your Name",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/ep_private_notes.git"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "etherpad": {
+    "parts": [
+      {
+        "name": "private_notes",
+        "hooks": {
+          "aceInitialized": "ep_private_notes/static/js/main:postAceInit"
+        },
+        "client_hooks": {
+          "postAceInit": "ep_private_notes/static/js/main:postAceInit"
+        }
+      }
+    ]
+  },
+  "devDependencies": {},
+  "dependencies": {}
+} 

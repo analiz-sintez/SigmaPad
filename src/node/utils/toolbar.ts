@@ -57,10 +57,17 @@ class ButtonGroup {
     }
 
     public static fromArray = function (array: string[]) {
+        console.log('Creating button group from array:', array);
         const btnGroup = new ButtonGroup();
         each(array, (btnName: string) => {
-            const button = Button.load(btnName) as Button
-            btnGroup.addButton(button);
+            console.log('Loading button:', btnName);
+            const button = Button.load(btnName) as Button;
+            if (button) {  // Only add the button if it loaded successfully
+                console.log('Button loaded successfully:', btnName);
+                btnGroup.addButton(button);
+            } else {
+                console.log('Failed to load button:', btnName);
+            }
         });
         return btnGroup;
     }
@@ -71,9 +78,13 @@ class ButtonGroup {
     }
 
     render(): string {
-        if (this.buttons && this.buttons.length === 1) {
+        if (!this.buttons || this.buttons.length === 0) {
+            return '';
+        }
+        
+        if (this.buttons.length === 1) {
             this.buttons[0].grouping = '';
-        } else if (this.buttons && this.buttons.length > 1) {
+        } else if (this.buttons.length > 1) {
             first(this.buttons)!.grouping = 'grouped-left';
             last(this.buttons)!.grouping = 'grouped-right';
             each(this.buttons.slice(1, -1), (btn: Button) => {
@@ -81,10 +92,7 @@ class ButtonGroup {
             });
         }
 
-        // @ts-ignore
-      return map(this.buttons, (btn: ButtonGroup) => {
-            if (btn) return btn.render();
-        }).join('\n');
+        return map(this.buttons, (btn: Button) => btn.render()).join('\n');
     }
 }
 
@@ -99,15 +107,18 @@ class Button {
     }
 
     public static load(btnName: string) {
+        console.log('Loading button:', btnName);
         const button = module.exports.availableButtons[btnName];
         try {
             if (button.constructor === Button || button.constructor === SelectButton) {
+                console.log('Button already instantiated:', btnName);
                 return button;
             } else {
+                console.log('Creating new button:', btnName, button);
                 return new Button(button);
             }
         } catch (e) {
-            console.warn('Error loading button', btnName);
+            console.warn('Error loading button', btnName, e);
             return false;
         }
     }
@@ -195,6 +206,13 @@ module.exports = {
         italic: defaultButtonAttributes('italic'),
         underline: defaultButtonAttributes('underline'),
         strikethrough: defaultButtonAttributes('strikethrough'),
+        select_language: {
+            command: 'select_language',
+            localizationId: 'pad.toolbar.select_language.title',
+            class: 'buttonicon buttonicon-select_language',
+            after: 'strikethrough',
+            before: 'orderedlist'
+        },
 
         orderedlist: {
             command: 'insertorderedlist',
@@ -261,6 +279,7 @@ module.exports = {
     },
 
     registerButton(buttonName: string, buttonInfo: any) {
+        console.log('Registering button:', buttonName, buttonInfo);
         this.availableButtons[buttonName] = buttonInfo;
     },
 
@@ -275,6 +294,14 @@ module.exports = {
      * Valid values for page:      'pad'  | 'timeslider'
      */
     menu(buttons: string[][], isReadOnly: boolean, whichMenu: string, page: string) {
+        console.log('Toolbar menu rendering:', {
+            buttons,
+            isReadOnly,
+            whichMenu,
+            page,
+            availableButtons: Object.keys(this.availableButtons)
+        });
+        
         if (isReadOnly) {
             // The best way to detect if it's the left editbar is to check for a bold button
             if (buttons[0].indexOf('bold') !== -1) {
@@ -300,7 +327,10 @@ module.exports = {
             buttons[0].push('savedrevision');
         }
 
-        const groups = map(buttons, (group: string[]) => ButtonGroup.fromArray(group).render());
+        const groups = map(buttons, (group: string[]) => {
+            console.log('Rendering button group:', group);
+            return ButtonGroup.fromArray(group).render();
+        });
         return groups.join(this.separator());
     },
 };

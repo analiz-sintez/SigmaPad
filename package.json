@@ -34,11 +34,13 @@
     "makeDocs": "pnpm --filter bin run makeDocs"
   },
   "dependencies": {
-    "ep_etherpad-lite": "workspace:./src"
+    "ep_etherpad-lite": "workspace:./src",
+    "ep_private_notes": "link:src/ep_private_notes"
   },
   "devDependencies": {
     "admin": "workspace:./admin",
     "docs": "workspace:./doc",
+    "tsx": "^4.19.3",
     "ui": "workspace:./ui"
   },
   "engines": {

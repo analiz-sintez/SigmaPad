@@ -1,0 +1,45 @@
+.buttonicon-select_language {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  content: "</>";
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  position: relative;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 16px;
+  min-height: 16px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.buttonicon-select_language:hover {
+  background-color: #e0e0e0;
+}
+
+.buttonicon-select_language:before {
+  content: '\e854';  /* Using the code icon from fontawesome-etherpad */
+  font-family: "fontawesome-etherpad";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  font-size: 15px;
+  display: inline-block;
+  text-decoration: inherit;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 

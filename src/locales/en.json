@@ -41,6 +41,8 @@
   "pad.toolbar.italic.title": "Italic (Ctrl+I)",
   "pad.toolbar.underline.title": "Underline (Ctrl+U)",
   "pad.toolbar.strikethrough.title": "Strikethrough (Ctrl+5)",
+  "pad.toolbar.insertCodeBlock.title": "Insert Code Block",
+  "pad.toolbar.select_language.title": "Select Language",
   "pad.toolbar.ol.title": "Ordered list (Ctrl+Shift+N)",
   "pad.toolbar.ul.title": "Unordered List (Ctrl+Shift+L)",
   "pad.toolbar.indent.title": "Indent (TAB)",
@@ -54,6 +56,7 @@
   "pad.toolbar.settings.title": "Settings",
   "pad.toolbar.embed.title": "Share and Embed this pad",
   "pad.toolbar.showusers.title": "Show the users on this pad",
+  "pad.toolbar.code_block.title": "Insert Code Block",
 
   "pad.colorpicker.save": "Save",
   "pad.colorpicker.cancel": "Cancel",

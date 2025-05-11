@@ -39,7 +39,7 @@ ARG SETTINGS=./settings.json.docker
 # If given a value, it has to be a space-separated, quoted list of plugin names.
 #
 # EXAMPLE:
-#   ETHERPAD_PLUGINS="ep_codepad ep_author_neat"
+#   ETHERPAD_PLUGINS="ep_author_neat"
 ARG ETHERPAD_PLUGINS=
 
 # local plugins to install while building the container. By default no plugins are

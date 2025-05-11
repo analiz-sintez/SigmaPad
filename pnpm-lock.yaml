@@ -11,6 +11,9 @@ importers:
       ep_etherpad-lite:
         specifier: workspace:./src
         version: link:src
+      ep_private_notes:
+        specifier: link:src/ep_private_notes
+        version: link:src/ep_private_notes
     devDependencies:
       admin:
         specifier: workspace:./admin
@@ -18,6 +21,9 @@ importers:
       docs:
         specifier: workspace:./doc
         version: link:doc
+      tsx:
+        specifier: ^4.19.3
+        version: 4.19.3
       ui:
         specifier: workspace:./ui
         version: link:ui
@@ -381,6 +387,8 @@ importers:
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/debug@4.1.12)(@types/node@22.14.1)(jsdom@26.0.0)(tsx@4.19.3)
+
+  src/ep_private_notes: {}
 
   ui:
     devDependencies:
@@ -3009,6 +3017,7 @@ packages:
 
   formidable@2.1.2:
     resolution: {integrity: sha512-CM3GuJ57US06mlpQ47YcunuUZ9jpm8Vx+P2CGt2j7HpgkKZO/DJYQ0Bobim8G6PFQmK5lOqOOdUXboU+h73A4g==}
+    deprecated: 'ACTION REQUIRED: SWITCH TO v3 - v1 and v2 are VULNERABLE! v1 is DEPRECATED FOR OVER 2 YEARS! Use formidable@latest or try formidable-mini for fresh projects'
 
   formidable@3.5.2:
     resolution: {integrity: sha512-Jqc1btCy3QzRbJaICGwKcBfGWuLADRerLzDqi2NwSt/UkXLsHJw2TVResiaoBufHVHy9aSgClOHCeJsSsFLTbg==}
@@ -3811,6 +3820,7 @@ packages:
   node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
+    deprecated: Use your platform's native DOMException instead
 
   node-fetch-commonjs@3.3.2:
     resolution: {integrity: sha512-VBlAiynj3VMLrotgwOS3OyECFxas5y7ltLcK4t41lMUZeaK15Ym4QRkqN0EQKAFL42q9i21EPKjzLUPfltR72A==}

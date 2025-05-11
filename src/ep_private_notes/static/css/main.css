@@ -1,0 +1,271 @@
+/* Styles for the private notes plugin */
+
+.private-notes-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.2s;
+  margin: 0 2px;
+  border-radius: 3px;
+  height: 32px;
+  width: 32px;
+  font-size: 16px;
+}
+
+.private-notes-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+/* Button icon style - properly style the SVG icon */
+.buttonicon-privateNotes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.buttonicon-privateNotes svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  display: block;
+}
+
+/* Color changes for hover and active states */
+.toolbar ul li a:hover .buttonicon-privateNotes svg,
+.toolbar ul li a:active .buttonicon-privateNotes svg,
+.toolbar ul li a.selected .buttonicon-privateNotes svg {
+  fill: #64d29b; /* Etherpad's primary action color */
+}
+
+/* Split pane container */
+.split-pane-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* Main editor area */
+.main-editor-area {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+/* Private notes area */
+.personal-notes-area {
+  width: 30%;
+  min-width: 200px;
+  max-width: 80%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-left: 1px solid #ddd;
+  display: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Resizer */
+.resizer {
+  width: 10px;
+  cursor: col-resize;
+  background-color: #ddd;
+  position: relative;
+  display: none;
+  z-index: -1;
+  flex-shrink: 0;
+}
+
+.resizer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #999,
+    #999 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.resizer:hover {
+  background-color: #ccc;
+}
+
+/* When private notes are visible */
+.personal-notes-area[style*="display: block"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-notes-area[style*="display: block"] ~ .resizer {
+  display: block;
+}
+
+/* Private notes content */
+.personal-notes-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.personal-notes-content h2 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 16px;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.personal-notes-content textarea {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  background-color: white;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.personal-notes-content textarea:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+/* Ensure the editor container maintains proper dimensions */
+#editorcontainerbox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#editorcontainerbox > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Ensure the editor takes full height */
+#innerdocbody {
+  height: 100% !important;
+  min-height: 100% !important;
+  overflow: auto;
+}
+
+/* Fix toolbar position */
+#editbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.private-notes-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.private-notes-sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.private-notes-sidebar h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.private-notes-content {
+  margin-top: 20px;
+}
+
+/* Adjust the main editor container */
+.editor-container-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.editor-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: width 0.3s ease;
+}
+
+/* When sidebar is visible */
+.private-notes-sidebar[style*="display: block"] ~ .editor-container {
+  width: 70% !important;
+}
+
+/* Custom styling for active state */
+.toolbar ul li[data-key="privateNotes"] a.selected {
+  background-color: #f2f3f4;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 800px) {
+  .personal-notes-area {
+    width: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+  }
+  
+  .resizer {
+    display: none !important;
+  }
+} 

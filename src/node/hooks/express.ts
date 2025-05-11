@@ -152,12 +152,15 @@ exports.restartServer = async () => {
       res.header('Server', serverName);
     }
 
+    // Add Content-Security-Policy header to allow loading favicon and other resources
+    res.header('Content-Security-Policy', "default-src 'self' data: blob:; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' ws: wss:; font-src 'self' data:; frame-ancestors 'self';");
+
     next();
   });
 
   if (settings.trustProxy) {
     /*
-     * If 'trust proxy' === true, the client’s IP address in req.ip will be the
+     * If 'trust proxy' === true, the client's IP address in req.ip will be the
      * left-most entry in the X-Forwarded-* header.
      *
      * Source: https://expressjs.com/en/guide/behind-proxies.html

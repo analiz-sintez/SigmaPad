@@ -344,6 +344,7 @@ const callHookFnAsync = async (hook, context) => {
 //     3. Flatten one level.
 //   If cb is non-null, this function resolves to the value returned by cb.
 exports.aCallAll = async (hookName, context, cb = null) => {
+  console.log(`[HOOK] Triggered: ${hookName}`);
   if (cb != null) return await attachCallback(exports.aCallAll(hookName, context), cb);
   if (context == null) context = {};
   const hooks = pluginDefs.hooks[hookName] || [];

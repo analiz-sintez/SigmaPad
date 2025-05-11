@@ -1,5 +1,6 @@
 packages:
   - src
+  - src/ep_private_notes
   - admin
   - bin
   - doc

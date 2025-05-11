@@ -1,0 +1,1 @@
+echo "(function() { window.ep_private_notes = window.ep_private_notes || {}; window.ep_private_notes.documentReady = function() { console.log(\"Plugin loaded successfully\"); }; })();" > src/plugin_packages/ep_private_notes/static/js/main.js

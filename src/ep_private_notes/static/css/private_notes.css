@@ -1,0 +1,119 @@
+/* Private Notes Plugin Styles */
+
+.personal-notes-area {
+  background: #f5f5f5;
+  border-left: 1px solid #ccc;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 300px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.personal-notes-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.personal-notes-content h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+}
+
+.personal-notes-content textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: #fff;
+  color: #333;
+}
+
+.personal-notes-content textarea:focus {
+  outline: none;
+  border-color: #3380FF;
+  box-shadow: 0 0 0 2px rgba(51, 128, 255, 0.1);
+}
+
+.resizer {
+  width: 6px;
+  background-color: #ccc;
+  cursor: col-resize;
+  display: none;
+}
+
+.resizer:hover, 
+.resizer:active {
+  background-color: #999;
+}
+
+body.resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
+/* Icon for the Private Notes button in toolbar */
+.buttonicon-privateNotes svg {
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* For dark themes */
+@media (prefers-color-scheme: dark) {
+  .personal-notes-area {
+    background: #292929;
+    border-left-color: #444;
+    color: #eee;
+  }
+  
+  .personal-notes-content h2 {
+    border-bottom-color: #444;
+    color: #eee;
+  }
+  
+  .personal-notes-content textarea {
+    background-color: #333;
+    border-color: #444;
+    color: #eee;
+  }
+  
+  .resizer {
+    background-color: #444;
+  }
+  
+  .resizer:hover, 
+  .resizer:active {
+    background-color: #666;
+  }
+}
+
+/* Adjust editor area when notes panel is shown */
+body.showing-private-notes #outerdocbody,
+body.showing-private-notes #editorcontainer,
+body.showing-private-notes #editor {
+  transition: width 0.2s ease;
+}
+
+/* Active state for the private notes button */
+li[data-key="privateNotes"].active a {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 800px) {
+  .personal-notes-area {
+    width: 250px;
+  }
+} 

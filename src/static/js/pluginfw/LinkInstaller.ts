@@ -63,15 +63,65 @@ export class LinkInstaller {
     }
 
     public async listPlugins() {
-        const plugins = this.livePluginManager.list()
-        if (plugins && plugins.length > 0 && this.loadedPlugins.length == 0) {
-            this.loadedPlugins = plugins
-            // Check already installed plugins
-            for (let plugin of plugins) {
-                await this.checkLinkedDependencies(plugin)
-            }
+        const plugins = this.livePluginManager.list();
+
+        console.log("🔍 DEBUG: listPlugins called");
+
+        console.log("🔍 DEBUG: livePluginManager.list() returned:");
+        for (const p of plugins) {
+        console.log(`📦 ${p.name} at ${p.location}`);
         }
-        return plugins
+
+      // 🔧 Manually add ep_private_notes if missing
+        const pluginAlreadyIncluded = plugins.some(p => p.name === 'ep_private_notes');
+        if (!pluginAlreadyIncluded) {
+            try {
+                const resolvedPath = require.resolve('ep_private_notes');
+                const resolvedDir = path.dirname(resolvedPath);
+                plugins.push({
+                name: 'ep_private_notes',
+                location: resolvedDir,
+                dependencies: {},
+                mainFile: path.join(resolvedDir, 'index.js'),
+                version: '0.0.1'
+                });
+                console.log(`✅ Manually added plugin: ep_private_notes → ${resolvedDir}`);
+                } catch (err) {
+                console.warn('❌ Could not manually resolve ep_private_notes:', err);
+                }
+            }
+
+      // 🔧 Manually add ep_code_highlighter if missing
+        const codeHighlighterAlreadyIncluded = plugins.some(p => p.name === 'ep_code_highlighter');
+        if (!codeHighlighterAlreadyIncluded) {
+            try {
+                const resolvedPath = require.resolve('ep_code_highlighter');
+                const resolvedDir = path.dirname(resolvedPath);
+                plugins.push({
+                name: 'ep_code_highlighter',
+                location: resolvedDir,
+                dependencies: {},
+                mainFile: path.join(resolvedDir, 'index.js'),
+                version: '0.0.1'
+                });
+                console.log(`✅ Manually added plugin: ep_code_highlighter → ${resolvedDir}`);
+                } catch (err) {
+                console.warn('❌ Could not manually resolve ep_code_highlighter:', err);
+                }
+            }
+
+      if (plugins.length > 0 && this.loadedPlugins.length === 0) {
+        this.loadedPlugins = plugins;
+        for (let plugin of plugins) {
+          await this.checkLinkedDependencies(plugin);
+        }
+      }
+
+      for (const plugin of plugins) {
+        console.log(`🔧 Found plugin candidate: ${plugin.name} → ${plugin.location}`);
+      }
+
+      return plugins;
     }
 
     public async uninstallPlugin(pluginName: string) {

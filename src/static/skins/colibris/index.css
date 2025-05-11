@@ -5,7 +5,7 @@ form {
 }
 
 body {
-  background: url(images/fond.jpg) center center no-repeat fixed #fff;
+  background: url(images/fond.png) center center no-repeat fixed #fff;
   font-family: Quicksand, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
@@ -28,18 +28,41 @@ input {
   color: #4a5d5c;
 }
 
+/* Form styling updates */
+form {
+  height: 38px;
+  background: rgba(85, 85, 85, 0.2); /* Updated form background to semi-transparent gray */
+  border: 1px solid #555; /* Changed from white/default to gray border */
+  border-radius: 3px;
+  position: relative;
+}
+
+input[type="text"] {
+  border-radius: 3px;
+  box-sizing: border-box;
+  line-height: 36px;
+  padding: 0px 45px 0 10px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  color: #555; /* Gray text */
+}
+
 #inner {
   background: transparent;
   padding-top: 0;
   width: 350px;
   max-width: 350px;
   text-align: center;
-  color:#FFF;
+  color: #555; /* Changed from white to gray */
 }
 
 #label {
   text-shadow: none;
-  color: #FFF;
+  color: #555; /* Changed from white to gray */
   font-weight: normal;
   text-align: center;
 }
