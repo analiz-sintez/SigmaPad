@@ -1,8 +1,7 @@
 services:
   app:
     user: "0:0"
-    # image: etherpad/etherpad:latest
-    image: ghcr.io/analiz-sintez/SigmaPad:${APP_TAG:-latest}
+    image: ghcr.io/analiz-sintez/sigmapad:${APP_TAG:-latest}
     tty: true
     stdin_open: true
     volumes:
