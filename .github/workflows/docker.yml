@@ -21,7 +21,7 @@ jobs:
     steps:
       -
         name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: etherpad
 
@@ -122,7 +122,7 @@ jobs:
           repository: etherpad/etherpad
           enable-url-completion: true
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: ether-charts
           repository: ether/ether-charts
