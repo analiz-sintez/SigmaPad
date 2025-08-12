@@ -40,7 +40,7 @@
   "devDependencies": {
     "admin": "workspace:./admin",
     "docs": "workspace:./doc",
-    "tsx": "^4.19.3",
+    "tsx": "^4.20.4",
     "ui": "workspace:./ui"
   },
   "engines": {
