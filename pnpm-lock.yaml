@@ -231,8 +231,8 @@ importers:
         specifier: ^8.8.1
         version: 8.8.1
       openapi-backend:
-        specifier: ^5.11.1
-        version: 5.11.1
+        specifier: ^5.14.0
+        version: 5.14.0
       proxy-addr:
         specifier: ^2.0.7
         version: 2.0.7
@@ -1012,6 +1012,7 @@ packages:
   '@koa/router@13.1.0':
     resolution: {integrity: sha512-mNVu1nvkpSd8Q8gMebGbCkDWJ51ODetrFvLKYusej+V0ByD4btqHYnPIzTBLXnQMVUlm/oxVwqmWBY3zQfZilw==}
     engines: {node: '>= 18'}
+    deprecated: Please upgrade to v13.1.1+ per <https://github.com/koajs/router/pull/181>
 
   '@napi-rs/wasm-runtime@0.2.8':
     resolution: {integrity: sha512-OBlgKdX7gin7OIq4fadsjpg+cp2ZphvAIKucHsNfTdJiqdOmOEwQd/bHi0VwNrcw5xpBJyUw6cK/QilCqy1BSg==}
@@ -3899,8 +3900,8 @@ packages:
   only@0.0.2:
     resolution: {integrity: sha512-Fvw+Jemq5fjjyWz6CpKx6w9s7xxqo3+JCyM0WXWeCSOboZ8ABkyvP8ID4CZuChA/wxSx+XSJmdOm8rGVyJ1hdQ==}
 
-  openapi-backend@5.11.1:
-    resolution: {integrity: sha512-TsIbku0692sU1X5Ewhzj49ivd8EIT0GDtwbB7XvT234lY3+oJfTe3cUWaBzeKGeX+a1mjcluuJ4V+wTancRbdA==}
+  openapi-backend@5.14.0:
+    resolution: {integrity: sha512-oHCI2vWwx7RY+PTYdaYx5VhJFYsg2+iT+//V1PBQDSknEAzDw7JBtOL2kfHl+QT3pjOso0etVKb0zJ6ZPDshJQ==}
     engines: {node: '>=12.0.0'}
 
   openapi-schema-validation@0.4.2:
@@ -4549,15 +4550,17 @@ packages:
   superagent@10.2.0:
     resolution: {integrity: sha512-IKeoGox6oG9zyDeizaezkJ2/aK0wc5la9st7WsAKyrAkfJ56W3whVbVtF68k6wuc87/y9T85NyON5FLz7Mrzzw==}
     engines: {node: '>=14.18.0'}
+    deprecated: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   superagent@8.1.2:
     resolution: {integrity: sha512-6WTxW1EB6yCxV5VFOIPQruWGHqc3yI7hEmZK6h+pyk69Lk/Ut7rLUY6W/ONF2MjBuGjvmMiIpsrVJ2vjrHlslA==}
     engines: {node: '>=6.4.0 <13 || >=14'}
-    deprecated: Please upgrade to v9.0.0+ as we have fixed a public vulnerability with formidable dependency. Note that v9.0.0+ requires Node.js v14.18.0+. See https://github.com/ladjs/superagent/pull/1800 for insight. This project is supported and maintained by the team at Forward Email @ https://forwardemail.net
+    deprecated: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   superagent@9.0.2:
     resolution: {integrity: sha512-xuW7dzkUpcJq7QnhOsnNUgtYp3xRwpt2F7abdRYIpCsAt0hhUqia0EdxyXZQQpNmGtsCzYHryaKSV3q3GJnq7w==}
     engines: {node: '>=14.18.0'}
+    deprecated: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   superjson@2.2.2:
     resolution: {integrity: sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q==}
@@ -4566,6 +4569,7 @@ packages:
   supertest@7.1.0:
     resolution: {integrity: sha512-5QeSO8hSrKghtcWEoPiO036fxH0Ii2wVQfFZSP0oqQhmjk8bOLhDFXr4JrvaFmPuEWUoq4znY3uSi8UzLKxGqw==}
     engines: {node: '>=14.18.0'}
+    deprecated: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -8867,7 +8871,7 @@ snapshots:
 
   only@0.0.2: {}
 
-  openapi-backend@5.11.1:
+  openapi-backend@5.14.0:
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.9.3
       ajv: 8.17.1
